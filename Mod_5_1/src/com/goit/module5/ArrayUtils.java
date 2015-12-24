@@ -9,7 +9,7 @@ public class ArrayUtils {
 
     public static int searchMaxInteger(int[] array){
 
-        int result = 0;
+        int result = array[0];
 
         for (int i = 0; i < array.length; i++){
 

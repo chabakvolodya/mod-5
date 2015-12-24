@@ -5,7 +5,7 @@ package com.goit.module5;
  */
 public class ArrayUtils {
 
-    public static int[] sortArray(int[] array){
+    public static int[] sortMinToMax(int[] array){
 
         boolean act = true;
 
@@ -22,6 +22,23 @@ public class ArrayUtils {
                     array[i + 1] = temp;
 
                     act = true;
+                }
+            }
+        }
+
+        return array;
+    }
+
+    public static int[] sortInsertMinToMax(int[] array){
+
+        for (int i = 0; i < array.length; i++){
+
+            for (int k = i + 1; k < array.length; k++){
+
+                if(array[i] > array[k]){
+                    int temp = array[i];
+                    array[i] = array[k];
+                    array[k] = temp;
                 }
             }
         }
