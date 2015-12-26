@@ -31,15 +31,22 @@ public class ArrayUtils {
 
     public static int[] sortInsertMinToMax(int[] array){
 
-        for (int i = 0; i < array.length; i++){
+        for(int i = 0; i < array.length; i++){
 
-            for (int k = i + 1; k < array.length; k++){
+            int temp = array[i];
+            Integer index = null;
 
-                if(array[i] > array[k]){
-                    int temp = array[i];
-                    array[i] = array[k];
-                    array[k] = temp;
+            for(int k = i; k < array.length; k++){
+                if(temp > array[k]){
+                    temp = array[k];
+                    index = k;
                 }
+            }
+
+            if(index != null){
+                int var = array[i];
+                array[i] = array[index];
+                array[index] = var;
             }
         }
 
