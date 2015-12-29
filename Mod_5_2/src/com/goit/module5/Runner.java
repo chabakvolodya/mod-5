@@ -6,7 +6,8 @@ package com.goit.module5;
 public class Runner {
     public static void main(String[] args) {
 
-        int[] myArray = {5, 9, 4, 1, 74, 159, 3, 7, 5, 4};
+        int[] myArray = {9, 5, 4, 1, 74, 159, 3, 7, 5, 4};
+//        int[] myArray = {4, 3, 2, 1};
 
 //        myArray = ArrayUtils.sortMinToMax(myArray);
 

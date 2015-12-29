@@ -29,7 +29,7 @@ public class ArrayUtils {
         return array;
     }
 
-    public static int[] sortInsertMinToMax(int[] array){
+    public static int[] sortSelectionMinToMax(int[] array){
 
         for(int i = 0; i < array.length; i++){
 
@@ -50,6 +50,27 @@ public class ArrayUtils {
             }
         }
 
+        return array;
+    }
+
+    public static int[] sortInsertMinToMax(int[] array){
+
+        for (int i = 0; i < array.length; i++){
+
+            int temp = array[i];
+
+            for (int k = i; k > 0; k--){
+
+                if (temp > array[k - 1])break;  //Якщо array > array[i - 1] виходим з циклу беручи наступний index
+
+                array[k] = array[k - 1];
+
+                if (temp < array[k - 1]){
+                    array[k - 1] = temp;    //Вставляєм значення index
+                }
+            }
+
+        }
         return array;
     }
 }
