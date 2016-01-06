@@ -73,4 +73,56 @@ public class ArrayUtils {
         }
         return array;
     }
+
+    public static void mergeSort(int[] array){
+
+        if (array.length <= 1){
+            return;
+        }
+
+        int leftSize = array.length/2;
+        int rightSize = array.length - leftSize;
+
+        int[] left = new int[leftSize];
+        int[] right = new int[rightSize];
+
+        for (int i = 0; i < leftSize; i++)  left[i] = array[i];
+        for (int i = 0; i < rightSize; i++) right[i] = array[leftSize + i];
+
+        mergeSort(left);
+        mergeSort(right);
+
+        mergeSortUtil(array, left, right);
+
+    }
+
+    private static void mergeSortUtil(int[] array, int[] left, int[] right){
+
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int targetIndex = 0;
+        int remaining = left.length + right.length;
+
+        while (remaining > 0){
+            if (leftIndex >= left.length){
+                array[targetIndex] = right[rightIndex++];
+            }
+            else if (rightIndex >= right.length){
+                array[targetIndex] = left[leftIndex++];
+            }
+            else if (compareTo(left[leftIndex], right[rightIndex]) < 0){
+                array[targetIndex] = left[leftIndex++];
+            }
+            else {
+                array[targetIndex] = right[rightIndex++];
+            }
+
+            targetIndex++;
+            remaining--;
+        }
+    }
+    private static int compareTo(int x, int y){
+
+        return (x < y)? -1 : 1;
+    }
 }
